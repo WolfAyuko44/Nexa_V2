@@ -1,0 +1,249 @@
+@import url('variables.css');
+
+/* ==========================
+   Base du document
+   ========================== */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: var(--font-family-sans);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================
+   Conteneur principal
+   ========================== */
+.main-content {
+    flex: 1;
+    padding: var(--padding-medium);
+}
+
+/* ==========================
+   Hero Section (Page d'accueil)
+   ========================== */
+.home-hero {
+    text-align: center;
+    padding: var(--padding-large) var(--padding-medium);
+    background-color: var(--gray-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    margin: var(--margin-medium) 0;
+}
+
+.home-hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.home-hero h1 {
+    font-size: var(--font-size-xlarge);
+    margin-bottom: var(--margin-medium);
+    color: var(--text-color);
+    text-shadow: 1px 1px var(--shadow-small);
+}
+
+.home-hero p {
+    font-size: var(--font-size-medium);
+    margin-bottom: var(--margin-large);
+    color: var(--light-text-color);
+}
+
+.home-hero .btn {
+    display: inline-block;
+    padding: var(--padding-small) var(--padding-medium);
+    font-size: var(--font-size-medium);
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.home-hero .btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-small);
+}
+
+/* ==========================
+   Features Section (Page d'accueil)
+   ========================== */
+.home-features {
+    padding: var(--padding-large) var(--padding-medium);
+    background-color: var(--white-color);
+}
+
+.home-features .container {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--margin-medium);
+    flex-wrap: wrap;
+}
+
+.home-features .home-feature {
+    flex: 1;
+    text-align: center;
+    box-shadow: var(--shadow-medium);
+    padding: var(--padding-medium);
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    max-width: calc(33.333% - var(--margin-medium));
+    transition: transform var(--transition-speed);
+    overflow: hidden;
+}
+
+.home-features .home-feature:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-large);
+}
+
+.home-features .home-feature img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-speed);
+}
+
+.home-features .home-feature img:hover {
+    transform: scale(1.1);
+}
+
+.home-features .home-feature h2 {
+    font-size: var(--font-size-large);
+    margin: var(--margin-medium) 0 var(--margin-small);
+}
+
+.home-features .home-feature p {
+    font-size: var(--font-size-medium);
+    color: var(--light-text-color);
+}
+
+/* ==========================
+   Posts Section
+   ========================== */
+.posts-section {
+    margin: var(--margin-large) 0;
+}
+
+.post {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    padding: var(--padding-medium);
+    margin-bottom: var(--margin-medium);
+    transition: transform var(--transition-speed);
+}
+
+.post:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-large);
+}
+
+.post img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--margin-small);
+}
+
+.post h3 {
+    font-size: var(--font-size-large);
+    margin-bottom: var(--margin-small);
+}
+
+.post p {
+    font-size: var(--font-size-medium);
+    color: var(--light-text-color);
+}
+
+/* ==========================
+   Comments Section
+   ========================== */
+.comments {
+    margin-top: var(--margin-medium);
+    background-color: var(--gray-light);
+    padding: var(--padding-medium);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+}
+
+.comment {
+    margin-bottom: var(--margin-small);
+    padding: var(--padding-small);
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment p {
+    font-size: var(--font-size-small);
+}
+
+/* ==========================
+   Buttons
+   ========================== */
+.btn {
+    display: inline-block;
+    padding: var(--padding-small) var(--padding-medium);
+    font-size: var(--font-size-medium);
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* ==========================
+   Responsive Design
+   ========================== */
+@media (max-width: 768px) {
+    .home-features .container,
+    .posts-section {
+        flex-direction: column;
+    }
+
+    .home-features .home-feature,
+    .post {
+        max-width: 100%;
+    }
+
+    .home-features .home-feature h2,
+    .post h3 {
+        font-size: var(--font-size-medium);
+    }
+}
+
+@media (max-width: 480px) {
+    .home-hero h1 {
+        font-size: var(--font-size-large);
+    }
+
+    .home-hero p {
+        font-size: var(--font-size-small);
+    }
+
+    .home-hero .btn {
+        padding: var(--padding-small) var(--padding-medium);
+        font-size: var(--font-size-small);
+    }
+
+    .post h3 {
+        font-size: var(--font-size-medium);
+    }
+
+    .post p {
+        font-size: var(--font-size-small);
+    }
+}

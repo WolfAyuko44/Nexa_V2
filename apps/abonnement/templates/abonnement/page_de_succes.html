@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Opération réussie !</h2>
+    <p>Votre opération a été complétée avec succès.</p>
+    <div class="mt-4">
+        <a href="{% url 'abonnement:abonnement_detail' %}" class="btn btn-primary">Retourner aux Détails de l'Abonnement</a>
+        <a href="{% url 'abonnement:souscrire_abonnement' %}" class="btn btn-success">Souscrire à un nouvel Abonnement</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Ajouter un Article</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Ajouter l'article</button>
+    </form>
+    <a href="{% url 'monétisation:boutique' %}">Retour à la boutique</a>
+{% endblock %}

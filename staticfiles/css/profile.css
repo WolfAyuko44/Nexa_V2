@@ -1,0 +1,281 @@
+@import url('variables.css'); /* Importation des variables CSS */
+
+/* General Reset and Base Styling */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family-sans);
+    color: var(--text-color);
+    background: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover, a:focus {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Container Principal */
+.profile-container-mod {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--padding-medium);
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-container-mod:hover {
+    box-shadow: var(--shadow-large);
+}
+
+/* Profile Header */
+.profile-header-mod {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-large) 0;
+    margin-bottom: var(--margin-large);
+    border-bottom: 2px solid var(--border-color-light);
+    background: var(--background-dark);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-small);
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.profile-avatar-mod {
+    position: relative;
+    margin-right: var(--margin-medium);
+    transition: transform 0.3s ease;
+}
+
+.profile-avatar-mod img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-small);
+}
+
+.profile-avatar-mod img:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: var(--shadow-large);
+}
+
+.profile-info-mod {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-info-mod h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: var(--margin-small);
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.profile-info-mod h1:hover {
+    color: var(--secondary-color);
+}
+
+.profile-info-mod p {
+    font-size: 1.1rem;
+    color: var(--gray-dark);
+    margin-bottom: var(--margin-medium);
+    transition: color 0.3s ease;
+}
+
+.profile-info-mod p:hover {
+    color: var(--secondary-color);
+}
+
+/* Stats Section */
+.profile-stats-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: var(--margin-medium);
+}
+
+.profile-stat-item {
+    text-align: center;
+    animation: slideIn 0.8s ease forwards;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.profile-stat-item strong {
+    font-size: 2rem; /* Taille de la police augmentée pour les statistiques */
+    color: var(--primary-color);
+    display: block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.profile-stat-item p {
+    font-size: 1rem;
+    color: var(--gray-dark);
+    transition: color 0.3s ease;
+}
+
+.profile-stat-item:hover strong {
+    color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+/* Boutons d'action */
+.profile-actions {
+    display: flex;
+    gap: var(--margin-small);
+    margin-top: var(--margin-medium);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: var(--shadow-small);
+}
+
+.follow-btn, .message-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.follow-btn:hover, .message-btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Profile Content */
+.profile-content-mod {
+    padding: var(--padding-medium);
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-content-mod:hover {
+    box-shadow: var(--shadow-large);
+}
+
+/* Posts Gallery */
+.posts-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajustement pour des images plus petites */
+    gap: 10px; /* Espacement réduit entre les images */
+}
+
+.post-item {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-small);
+}
+
+.post-item img {
+    width: 100%;
+    height: 100px; /* Hauteur réduite pour les images des posts */
+    object-fit: cover; /* Couverture complète tout en gardant le ratio */
+}
+
+.post-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+}
+
+.post-item:hover img {
+    transform: scale(1.05);
+}
+
+.post-item p {
+    padding: 5px; /* Ajustement de remplissage pour la description */
+    font-size: 0.8rem; /* Taille de police ajustée pour la description */
+    background-color: rgba(0, 0, 0, 0.6); /* Opacité réduite pour plus de visibilité */
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.post-item:hover p {
+    opacity: 1;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .profile-header-mod {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .profile-avatar-mod {
+        margin-bottom: var(--margin-medium);
+    }
+    .profile-stats-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Adjust the grid for smaller screens */
+    .posts-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); /* Un seul élément par ligne sur les petits écrans */
+    }
+}
+
+/* Posts Gallery Actions */
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding-small);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-small);
+}
+
+.post-actions button {
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-weight: bold;
+}
+
+.post-actions button:hover {
+    color: var(--secondary-color);
+}

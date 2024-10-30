@@ -1,0 +1,99 @@
+/* Variables */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --text-color: #333333;
+    --bg-color: #ffffff;
+    --white: #ffffff;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --font-family: 'Roboto', sans-serif;
+}
+
+/* Base du document */
+body, html {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Conteneur principal */
+.main-content {
+    flex: 1;
+    padding: 2rem; /* Ajuste selon tes variables */
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 10rem 0;
+    background-image: url('/a/748e8451-04b5-480c-95ce-aea6946fe192');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: #fff;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Boutons */
+.btn {
+    padding: 0.75rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* Sections */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
+    background-color: var(--white);
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}

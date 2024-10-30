@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Annulation d'Abonnement</h2>
+    <p>Si vous souhaitez annuler votre abonnement, veuillez suivre les instructions ci-dessous.</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="motif">Motif de l'annulation :</label>
+            <textarea id="motif" name="motif" class="form-control" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-danger mt-3">Annuler l'abonnement</button>
+    </form>
+</div>
+{% endblock %}

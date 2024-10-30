@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}À Propos - {{ SITE_NAME }}{% endblock %}
+
+{% block meta_description %}
+    Apprenez-en plus sur {{ SITE_NAME }}. Découvrez notre mission, nos valeurs et l'équipe derrière la plateforme.
+{% endblock %}
+
+{% block og_title %}À Propos de {{ SITE_NAME }}{% endblock %}
+{% block og_description %}
+    Apprenez-en plus sur {{ SITE_NAME }}. Découvrez notre mission, nos valeurs et l'équipe derrière la plateforme.
+{% endblock %}
+{% block og_image %}{% static 'images/about-og-image.jpg' %}{% endblock %}
+
+{% block twitter_title %}À Propos de {{ SITE_NAME }}{% endblock %}
+{% block twitter_description %}
+    Apprenez-en plus sur {{ SITE_NAME }}. Découvrez notre mission, nos valeurs et l'équipe derrière la plateforme.
+{% endblock %}
+{% block twitter_image %}{% static 'images/about-twitter-image.jpg' %}{% endblock %}
+
+{% block hero_section %}
+<section class="hero about-hero">
+    <div class="hero-container">
+        <h1 class="hero-title">À Propos de {{ SITE_NAME }}</h1>
+        <p class="hero-subtitle">Découvrez notre mission, nos valeurs, et l'équipe qui rend tout cela possible.</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block main_content %}
+<section class="about-content">
+    <div class="container">
+        <h2>Notre Mission</h2>
+        <p>
+            Chez {{ SITE_NAME }}, notre mission est de connecter les joueurs du monde entier, de créer des communautés solides et de permettre à chacun de partager ses moments les plus mémorables.
+        </p>
+
+        <h2>Nos Valeurs</h2>
+        <ul>
+            <li><strong>Communauté :</strong> Nous croyons en la force des communautés, qu'elles soient grandes ou petites.</li>
+            <li><strong>Passion :</strong> Nous sommes passionnés par ce que nous faisons et nous mettons cette passion dans chaque aspect de notre travail.</li>
+            <li><strong>Innovation :</strong> Nous cherchons toujours à innover et à améliorer l'expérience de nos utilisateurs.</li>
+            <li><strong>Respect :</strong> Nous prônons le respect et l'inclusion au sein de nos communautés.</li>
+        </ul>
+
+        <h2>Rencontrez l'Équipe</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="{% static 'images/team/member1.jpg' %}" alt="Nom du Membre 1">
+                <h3>Nom du Membre 1</h3>
+                <p>Fondateur & CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'images/team/member2.jpg' %}" alt="Nom du Membre 2">
+                <h3>Nom du Membre 2</h3>
+                <p>Directeur Technique</p>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'images/team/member3.jpg' %}" alt="Nom du Membre 3">
+                <h3>Nom du Membre 3</h3>
+                <p>Responsable Marketing</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block featured_section %}
+<section class="about-featured">
+    <div class="container">
+        <h2>Ce qui nous distingue</h2>
+        <p>
+            {{ SITE_NAME }} se distingue par son engagement envers l'excellence et l'innovation. Nous travaillons sans relâche pour offrir la meilleure expérience possible à nos utilisateurs, et nous sommes fiers de ce que nous avons accompli jusqu'à présent.
+        </p>
+        <a href="{% url 'utilisateurs:contact' %}" class="btn btn-primary">Contactez-nous</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}

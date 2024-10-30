@@ -1,0 +1,254 @@
+@import url('variables.css');
+
+/* Conteneur principal */
+.container.settings-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px; /* Augmenté pour plus d'espace */
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.container.settings-container:hover {
+    transform: translateY(-3px); /* Effet de survol plus prononcé */
+    box-shadow: var(--shadow-large); /* Ombre plus marquée au survol */
+}
+
+/* Titre de la page */
+.settings-container h1,
+.settings-container h2 {
+    text-align: center;
+    font-size: var(--font-size-large);
+    margin-bottom: 20px;
+    color: var(--text-color);
+    transition: color var(--transition-speed);
+}
+
+.settings-container h1:hover, 
+.settings-container h2:hover {
+    color: var(--primary-color); /* Changement de couleur au survol */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Ombre au survol */
+}
+
+/* Style des onglets */
+.settings-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.settings-tabs .tab-links {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-small);
+    overflow: hidden;
+}
+
+.settings-tabs .tab-links li {
+    flex: 1;
+}
+
+.settings-tabs .tab-links a {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    border-radius: var(--border-radius);
+}
+
+.settings-tabs .tab-links a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    transform: scale(1.05); /* Légère augmentation au survol */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre au survol */
+}
+
+/* Style des formulaires */
+.settings-form {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    margin-bottom: 30px;
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.settings-form:hover {
+    box-shadow: var(--shadow-large); /* Ombre plus marquée au survol */
+    transform: translateY(-2px); /* Effet de survol */
+}
+
+.settings-form .form-group {
+    margin-bottom: 20px;
+}
+
+.settings-form .form-group label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Effets sur les champs de formulaire */
+.settings-form .form-control {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray-light);
+    padding: 10px;
+    width: 100%;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.settings-form .form-control:focus {
+    border-color: var(--primary-color); /* Changement de couleur lors de la sélection */
+    outline: none; /* Suppression de l'outline par défaut */
+    box-shadow: 0 0 5px rgba(0, 120, 255, 0.5); /* Ombre autour du champ */
+}
+
+/* Style pour les fichiers téléchargés */
+.settings-form .form-control-file {
+    margin-top: 10px;
+    border: 1px solid var(--gray-light);
+    padding: 5px;
+    border-radius: var(--border-radius);
+    width: 100%;
+}
+
+/* Boutons principaux */
+.settings-form .btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    color: var(--white-color);
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.settings-form .btn-primary:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px); /* Effet de survol */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombre au survol */
+}
+
+/* Messages d'information */
+.settings-form .form-text {
+    color: var(--light-text-color);
+}
+
+/* Style des images de profil */
+.settings-form img.img-thumbnail {
+    border-radius: 50%;
+    margin-top: 10px;
+    border: 3px solid var(--primary-color);
+    max-width: 150px;
+    height: auto;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.settings-form img.img-thumbnail:hover {
+    transform: scale(1.1); /* Zoom sur l'image au survol */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre au survol */
+}
+
+/* Espacement des sections */
+hr {
+    border-top: 1px solid var(--gray-light);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Style pour les messages d'erreur et de succès */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    animation: fadeIn 0.5s; /* Animation d'apparition */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.alert-success {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    border: 1px solid var(--success-border);
+}
+
+.alert-error {
+    background-color: var(--error-bg);
+    color: var(--error-text);
+    border: 1px solid var(--error-border);
+}
+
+/* Boutons de retour */
+.btn-secondary {
+    background-color: var(--secondary-color-dark);
+    color: var(--white-color);
+    border-radius: var(--border-radius);
+    padding: 10px 20px;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px); /* Effet de survol */
+}
+
+/* Ajustements pour le Responsive Design */
+@media (max-width: 768px) {
+    .container.settings-container {
+        padding: 15px;
+    }
+
+    .settings-form .btn-primary,
+    .btn-secondary {
+        padding: 10px;
+        font-size: var(--font-size-medium);
+    }
+
+    .settings-form img.img-thumbnail {
+        max-width: 100px;
+    }
+
+    .settings-tabs .tab-links a {
+        padding: 12px; /* Ajustement pour les petits écrans */
+    }
+}
+
+/* Gestion des onglets */
+.tab-content .tab {
+    display: none;
+}
+
+.tab-content .tab.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out, slideDown 0.3s ease-in-out; /* Animation d'apparition et de glissement */
+}
+
+/* Animation de glissement */
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 500px; /* Limite de hauteur pour le contenu visible */
+        opacity: 1;
+    }
+}

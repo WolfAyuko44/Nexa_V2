@@ -1,0 +1,86 @@
+:root {
+    /* Couleurs principales */
+    --primary-color: #3897f0;
+    --primary-color-dark: #2c86c1;
+    --secondary-color: #262626;
+    --secondary-color-dark: #000000;
+    --accent-color: #ed4956;
+    --background-color: #ffffff;
+    --background-light: #ffffff;
+    --text-color: #262626;
+    --light-text-color: #999999;
+    --white-color: #ffffff;
+    --gray-light: #dbdbdb;
+    --gray-dark: #8e8e8e;
+    --border-radius: 3px;
+  
+    /* Effets d'ombre */
+    --shadow-small: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-medium: 0 3px 6px rgba(0, 0, 0, 0.16);
+    --shadow-large: 0 10px 20px rgba(0, 0, 0, 0.19);
+  
+    /* Transitions */
+    --transition-speed: 0.2s;
+    --transition-fast: 0.1s;
+    --transition-slow: 0.4s;
+  
+    /* Tailles */
+    --font-size-small: 0.875rem;
+    --font-size-medium: 1rem;
+    --font-size-large: 1.125rem;
+    --font-size-xlarge: 1.5rem;
+    --line-height-normal: 1.4;
+    --line-height-loose: 1.6;
+  
+    /* Espacements */
+    --padding-small: 0.5rem;
+    --padding-medium: 1rem;
+    --padding-large: 1.5rem;
+    --margin-small: 0.5rem;
+    --margin-medium: 1rem;
+    --margin-large: 1.5rem;
+  
+    /* Bordures */
+    --border-width-thin: 1px;
+    --border-width-thick: 2px;
+    --border-style: solid;
+    --border-color-light: #dbdbdb;
+    --border-color-dark: #999999;
+  
+    /* Typographie */
+    --font-family-sans: 'Roboto', 'Helvetica Neue', sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-bold: 600;
+  
+    /* Couleurs supplémentaires */
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+  
+    /* Grilles */
+    --grid-columns: 12;
+    --grid-gutter: 1rem;
+  
+    /* Couleurs des états interactifs */
+    --hover-color: #3897f0;
+    --active-color: #2c86c1;
+    --focus-color: #3897f0;
+  
+    /* Taille des icônes */
+    --icon-size-small: 1rem;
+    --icon-size-medium: 1.5rem;
+    --icon-size-large: 2rem;
+  
+    /* Dimensions spécifiques */
+    --card-width: 350px;
+    --modal-width: 500px;
+    --navbar-height: 60px;
+    --footer-height: 60px;
+  
+    /* Modes d'affichage */
+    --display-flex: flex;
+    --display-grid: grid;
+    --display-block: block;
+    --display-inline: inline;
+  }

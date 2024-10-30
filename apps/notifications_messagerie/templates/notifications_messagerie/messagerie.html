@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>Messagerie</h2>
+    <h3>Envoyer un message</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <h3>Messages envoyés</h3>
+    <ul>
+        {% for message in messages_envoyes %}
+            <li>
+                <p><strong>À {{ message.destinataire.username }}</strong>: {{ message.contenu|slice:":30" }}...</p>
+                <p>Date d'envoi: {{ message.date_envoi }}</p>
+                <a href="{% url 'message_detail' message.id %}">Voir</a>
+            </li>
+        {% empty %}
+            <p>Aucun message envoyé.</p>
+        {% endfor %}
+    </ul>
+
+    <h3>Messages reçus</h3>
+    <ul>
+        {% for message in messages_recus %}
+            <li>
+                <p><strong>De {{ message.expediteur.username }}</strong>: {{ message.contenu|slice:":30" }}...</p>
+                <p>Date de réception: {{ message.date_envoi }}</p>
+                <a href="{% url 'message_detail' message.id %}">Voir</a>
+            </li>
+        {% empty %}
+            <p>Aucun message reçu.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}

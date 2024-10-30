@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Détails du Post - {{ post.title }}{% endblock %}
+{% load static %}
+
+{% block content %}
+    <div class="post-details-container">
+        <h1>{{ post.title|default:"Sans titre" }}</h1>
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+        {% endif %}
+        <p>{{ post.description }}</p>
+        
+        <div class="post-actions">
+            <button class="like-btn">❤️ Like</button>
+            <button class="comment-btn">💬 Commenter</button>
+            {% if request.user == post.utilisateur %}
+                <button class="delete-btn" onclick="confirmDelete('{{ post.id }}')">🗑️ Supprimer</button>
+            {% endif %}
+        </div>
+        
+        <script>
+            function confirmDelete(postId) {
+                if (confirm("Êtes-vous sûr de vouloir supprimer ce post ?")) {
+                    window.location.href = "{% url 'utilisateurs:post_delete' post.id %}";  // Assurez-vous que cette URL est correcte
+                }
+            }
+        </script>
+    </div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'settings/settings.html' %}
+
+{% block title %}Sécurité{% endblock %}
+
+{% block extra_content %}
+<div class="container settings-container">
+    <h1 class="settings-title">Paramètres de Sécurité</h1>
+    <form method="post" action="{% url 'user_settings:security_settings' %}" class="settings-form">
+        {% csrf_token %}
+
+        <div class="form-group mt-3">
+            <label for="current_password">Mot de passe actuel</label>
+            <input type="password" class="form-control" id="current_password" name="current_password" required>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="new_password">Nouveau mot de passe</label>
+            <input type="password" class="form-control" id="new_password" name="new_password" required>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="confirm_password">Confirmer le nouveau mot de passe</label>
+            <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+        </div>
+
+        <hr class="mt-4 mb-4">
+
+        <div class="form-group">
+            <label for="two_factor_auth">Authentification à deux facteurs</label>
+            <select class="form-control" id="two_factor_auth" name="two_factor_auth">
+                <option value="enabled" {% if user.profile.two_factor_auth == 'enabled' %}selected{% endif %}>Activé</option>
+                <option value="disabled" {% if user.profile.two_factor_auth == 'disabled' %}selected{% endif %}>Désactivé</option>
+            </select>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="backup_email">Email de secours</label>
+            <input type="email" class="form-control" id="backup_email" name="backup_email" value="{{ user.profile.backup_email }}">
+            <small class="form-text text-muted">Cet email sera utilisé pour la récupération de compte.</small>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="phone_number">Numéro de téléphone</label>
+            <input type="tel" class="form-control" id="phone_number" name="phone_number" value="{{ user.profile.phone_number }}">
+            <small class="form-text text-muted">Ce numéro pourra être utilisé pour l'authentification à deux facteurs.</small>
+        </div>
+
+        <hr class="mt-4 mb-4">
+
+        <div class="form-group">
+            <label for="active_sessions">Sessions actives</label>
+            <ul class="list-group">
+                {% for session in active_sessions %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ session.device }} - {{ session.location }}
+                        <button type="submit" name="logout_session" value="{{ session.id }}" class="btn btn-danger btn-sm">Déconnecter</button>
+                    </li>
+                {% endfor %}
+            </ul>
+            <small class="form-text text-muted">Ces appareils sont actuellement connectés à votre compte.</small>
+        </div>
+
+        <div class="form-group mt-4">
+            <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

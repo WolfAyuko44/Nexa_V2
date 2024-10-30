@@ -1,0 +1,21 @@
+<!-- messagerie/templates/messagerie/message_detail.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Conversation with {% for participant in conversation.participants.all %}{{ participant.username }}{% if not forloop.last %}, {% endif %}{% endfor %}</h1>
+
+<div>
+    {% for message in messages %}
+        <p><strong>{{ message.sender.username }}:</strong> {{ message.content }} <small>{{ message.created_at }}</small></p>
+    {% empty %}
+        <p>No messages</p>
+    {% endfor %}
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send</button>
+</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% load static %}
+
+<header class="site-header">
+    <div class="container">
+        <div class="header-left">
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/logo.png' %}" alt="Logo {{ SITE_NAME }}">
+                </a>
+            </div>
+            <div class="header-content">
+                <p>Connectez-vous, partagez, et explorez des contenus passionnants sur {{ SITE_NAME }} !</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- CSS pour le Header -->
+<link rel="stylesheet" href="{% static 'css/header.css' %}">

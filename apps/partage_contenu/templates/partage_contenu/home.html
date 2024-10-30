@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil{% endblock %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="post-feed">
+        {% for post in posts %}
+        <div class="post">
+            <!-- En-tête du post avec avatar et nom d'utilisateur -->
+            <div class="post-header">
+                <div class="profile-avatar">
+                    <img src="{{ post.utilisateur.get_avatar_url }}" alt="Avatar de {{ post.utilisateur.username }}" class="avatar">
+                </div>
+                <div class="user-info">
+                    <span class="username">{{ post.utilisateur.username }}</span>
+                    <span class="post-time"><small>{{ post.created_at|timesince }} ago</small></span>
+                </div>
+            </div>
+
+            <!-- Image principale du post -->
+            <div class="post-image">
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="Image du post" loading="lazy">
+                {% else %}
+                    <p>Aucune image disponible pour ce post.</p>
+                {% endif %}
+            </div>
+
+            <!-- Légende du post -->
+            <div class="post-caption">
+                <p>
+                    <strong>{{ post.utilisateur.username }}</strong> {{ post.description|linebreaksbr }}
+                </p>
+            </div>
+
+            <!-- Actions du post -->
+            <div class="post-actions">
+                <button type="button" class="like-btn" onclick="toggleLike({{ post.id }})">
+                    <i class="fas fa-heart"></i>
+                    <span class="like-count" id="like-count-{{ post.id }}">{{ post.likes_in_partage_contenu.count }}</span> J'aime
+                </button>
+                <button class="comment-btn" onclick="toggleComments('{{ post.id }}')">
+                    <i class="fas fa-comment"></i> Commenter
+                </button>
+            </div>
+
+            <!-- Section des commentaires -->
+            <div class="post-comments" id="comments-{{ post.id }}" style="display: none;">
+                {% for comment in post.comments.all|slice:":3" %}
+                <div class="comment">
+                    <p>
+                        <strong>{{ comment.utilisateur.username }}</strong> {{ comment.texte }}
+                        <small>{{ comment.date_creation|timesince }} ago</small>
+                    </p>
+                </div>
+                {% endfor %}
+                {% if post.comments.count > 3 %}
+                <button class="view-more-comments" onclick="viewAllComments('{{ post.id }}')">
+                    Voir tous les {{ post.comments.count }} commentaires
+                </button>
+                {% endif %}
+                
+                <!-- Formulaire pour ajouter un commentaire -->
+                <form method="POST" action="{% url 'partage_contenu:add_comment' post.id %}">
+                    {% csrf_token %}
+                    <textarea name="text" placeholder="Écrivez un commentaire..." required></textarea>
+                    <button type="submit">Commenter</button>
+                </form>
+            </div>
+        </div>
+        {% empty %}
+        <p>Aucun post à afficher.</p>
+        {% endfor %}
+    </div>
+
+    <script>
+        function toggleComments(postId) {
+            const commentsSection = document.getElementById(`comments-${postId}`);
+            commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function viewAllComments(postId) {
+            window.location.href = "{% url 'partage_contenu:post_detail' '0' %}".replace('0', postId); 
+        }
+
+        function toggleLike(postId) {
+            const likeCountElement = document.getElementById(`like-count-${postId}`);
+            
+            // Envoie une requête POST pour liker ou déliker
+            fetch(`{% url 'partage_contenu:like_post' '0' %}`.replace('0', postId), {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'same-origin',
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erreur lors de la mise à jour du like');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Met à jour le compteur de likes
+                likeCountElement.textContent = data.like_count;
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+            });
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'settings/settings.html' %}
+
+{% load static %}
+
+{% block title %}Paramètres de Profil | {{ site_name }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/settings.css' %}">
+{% endblock %}
+
+{% block extra_content %}
+<div class="container.settings-container">
+    <h2 class="settings-title mb-4">Paramètres de Profil</h2>
+
+    <form method="post" enctype="multipart/form-data" class="profile-settings-form shadow p-4 rounded bg-white">
+        {% csrf_token %}
+
+        <div class="form-group mt-3">
+            <label for="identifiant_fortnite"><i class="fas fa-gamepad"></i> Identifiant Fortnite</label>
+            <input type="text" class="form-control" id="identifiant_fortnite" name="identifiant_fortnite" value="{{ user.identifiant_fortnite }}" required>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="bio"><i class="fas fa-user-tag"></i> Biographie</label>
+            <textarea class="form-control" id="bio" name="bio" rows="4">{{ user.bio }}</textarea>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="profile_picture"><i class="fas fa-image"></i> Photo de Profil</label>
+            <input type="file" class="form-control" id="profile_picture" name="profile_picture">
+            {% if user.profile_picture %}
+                <img src="{{ user.profile_picture.url }}" class="img-thumbnail mt-2" alt="Photo de Profil">
+            {% endif %}
+        </div>
+
+        <div class="form-group mt-4">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Sauvegarder les modifications</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

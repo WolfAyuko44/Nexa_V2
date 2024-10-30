@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Changer la Photo de Profil{% endblock %}
+
+{% block content %}
+    <div class="profile-picture-container">
+        <h1>Changer la Photo de Profil</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Changer la Photo</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,279 @@
+@import url('variables.css');
+
+/* ==========================
+   Base du document
+   ========================== */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: var(--font-family-sans);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================
+   Conteneur principal de la boutique
+   ========================== */
+.boutique-container {
+    max-width: 1200px;
+    margin: var(--margin-large) auto;
+    padding: var(--padding-medium);
+}
+
+/* ==========================
+   En-tête de la boutique
+   ========================== */
+.boutique-header {
+    text-align: center;
+    margin-bottom: var(--margin-large);
+}
+
+.boutique-header h1 {
+    font-size: var(--font-size-xlarge);
+    color: var(--secondary-color);
+}
+
+/* ==========================
+   Section du filtre (Sélecteur de catégorie)
+   ========================== */
+.filter-section {
+    margin-bottom: var(--margin-large);
+    text-align: center;
+}
+
+.filter-section label {
+    font-size: var(--font-size-medium);
+    color: var(--text-color);
+    margin-right: var(--margin-small);
+}
+
+.filter-section select {
+    padding: var(--padding-small);
+    font-size: var(--font-size-medium);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray-light);
+    background-color: var(--background-light);
+    color: var(--text-color);
+    transition: border-color var(--transition-speed);
+}
+
+.filter-section select:hover, 
+.filter-section select:focus {
+    border-color: var(--secondary-color);
+}
+
+/* ==========================
+   Liste des articles
+   ========================== */
+.article-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--margin-medium);
+    justify-content: center;
+}
+
+.article-item {
+    flex: 1;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-small);
+    padding: var(--padding-medium);
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+    text-align: center;
+    max-width: calc(33.333% - var(--margin-medium));
+}
+
+.article-item:hover {
+    box-shadow: var(--shadow-medium);
+    transform: scale(1.02);
+}
+
+.article-item img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--margin-medium);
+    transition: transform var(--transition-speed);
+}
+
+.article-item img:hover {
+    transform: scale(1.1);
+}
+
+.article-item h3 {
+    font-size: var(--font-size-medium);
+    color: var(--secondary-color);
+    margin-bottom: var(--margin-small);
+}
+
+.article-item p {
+    font-size: var(--font-size-small);
+    color: var(--light-text-color);
+    margin-bottom: var(--margin-medium);
+}
+
+.article-item .price {
+    font-size: var(--font-size-medium);
+    color: var(--text-color);
+    margin-bottom: var(--margin-small);
+}
+
+.article-item .btn {
+    display: inline-block;
+    padding: var(--padding-small) var(--padding-medium);
+    font-size: var(--font-size-medium);
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.article-item .btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* ==========================
+   Responsive Design
+   ========================== */
+@media (max-width: 768px) {
+    .article-item {
+        max-width: calc(50% - var(--margin-medium));
+    }
+}
+
+@media (max-width: 480px) {
+    .article-item {
+        max-width: 100%;
+    }
+
+    .filter-section {
+        margin-bottom: var(--margin-medium);
+    }
+}
+
+/* ==========================
+   Conteneur principal
+   ========================== */
+.article-detail-container {
+    max-width: 900px;
+    margin: var(--margin-large) auto;
+    padding: var(--padding-medium);
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+}
+
+/* ==========================
+   Détails de l'article
+   ========================== */
+.article-detail {
+    text-align: center;
+}
+
+.article-title {
+    font-size: var(--font-size-xlarge);
+    color: var(--primary-color);
+    margin-bottom: var(--margin-small);
+}
+
+.article-description {
+    font-size: var(--font-size-medium);
+    color: var(--text-color);
+    margin-bottom: var(--margin-medium);
+}
+
+.article-price {
+    font-size: var(--font-size-large);
+    color: var(--secondary-color);
+    margin-bottom: var(--margin-large);
+}
+
+.article-price span {
+    font-weight: bold;
+}
+
+/* ==========================
+   Image de l'article
+   ========================== */
+.article-image {
+    margin-bottom: var(--margin-large);
+}
+
+.article-image img {
+    max-width: 200px; /* Réduction de la taille maximale de l'image */
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-small);
+    transition: transform var(--transition-speed);
+    margin: 0 auto; /* Centrage horizontal */
+}
+
+.article-image img:hover {
+    transform: scale(1.05);
+}
+
+/* ==========================
+   Formulaire d'achat
+   ========================== */
+.purchase-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--margin-large);
+}
+
+.purchase-button {
+    padding: var(--padding-small) var(--padding-large);
+    font-size: var(--font-size-medium);
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.purchase-button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* ==========================
+   Lien de retour
+   ========================== */
+.back-to-shop {
+    display: inline-block;
+    margin-top: var(--margin-large);
+    font-size: var(--font-size-medium);
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.back-to-shop:hover {
+    color: var(--secondary-color);
+}
+
+/* ==========================
+   Responsive Design
+   ========================== */
+@media (max-width: 768px) {
+    .article-detail-container {
+        padding: var(--padding-small);
+    }
+
+    .purchase-button {
+        width: 100%;
+        margin-top: var(--margin-small);
+    }
+
+    .article-image img {
+        max-width: 150px; /* Réduction supplémentaire pour les petits écrans */
+    }
+}

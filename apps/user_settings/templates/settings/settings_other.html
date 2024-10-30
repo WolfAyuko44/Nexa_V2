@@ -1,0 +1,40 @@
+{% extends 'settings/settings.html' %}
+{% load static %}
+
+{% block title %}Autres Paramètres | {{ site_name }}{% endblock %}
+
+{% block content %}
+<div class="container settings-container">
+    <h1 class="mb-4">Autres Paramètres</h1>
+
+    <!-- Contenu pour autres paramètres -->
+    <p class="mb-4">Voici des paramètres supplémentaires que vous pouvez modifier pour personnaliser davantage votre profil ou vos préférences.</p>
+
+    <!-- Formulaire pour autres paramètres -->
+    <form method="post" action="{% url 'settings:other_settings' %}" class="settings-form shadow p-4 rounded bg-white">
+        {% csrf_token %}
+
+        <!-- Exemples de champs pour les autres paramètres -->
+        <div class="form-group">
+            <label for="setting1">Paramètre 1</label>
+            <input type="text" id="setting1" name="setting1" class="form-control" placeholder="Entrez une valeur pour le paramètre 1">
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="setting2">Paramètre 2</label>
+            <input type="text" id="setting2" name="setting2" class="form-control" placeholder="Entrez une valeur pour le paramètre 2">
+        </div>
+
+        <!-- Ajouter d'autres champs ici si nécessaire -->
+
+        <div class="form-group mt-4">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Enregistrer les modifications</button>
+        </div>
+    </form>
+
+    <!-- Lien de retour ou autre contenu supplémentaire -->
+    <a href="{% url 'settings:settings' %}" class="btn btn-secondary mt-3">
+        <i class="fas fa-arrow-left"></i> Retour
+    </a>
+</div>
+{% endblock %}

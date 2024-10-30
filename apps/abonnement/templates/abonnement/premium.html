@@ -1,0 +1,13 @@
+<!-- premium.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Souscrire à un Abonnement Premium</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="date_fin">Date de Fin:</label>
+    <input type="date" name="date_fin" required>
+    <button type="submit">Souscrire</button>
+</form>
+{% endblock %}

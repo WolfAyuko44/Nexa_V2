@@ -1,0 +1,22 @@
+<!-- apps/abonnement/templates/modifier_prix.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Modifier le Prix de l'Abonnement</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title">Modifier Prix</h4>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="prix">Nouveau Prix :</label>
+                    <input type="number" class="form-control" id="prix" name="prix" value="{{ abonnement.prix }}" required>
+                </div>
+                <button type="submit" class="btn btn-success mt-3">Mettre à jour le Prix</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

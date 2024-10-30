@@ -1,0 +1,19 @@
+<!-- messagerie/templates/messagerie/inbox.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Inbox</h1>
+<ul>
+    {% for conversation in conversations %}
+        <li>
+            <a href="{% url 'messagerie:conversation_detail' conversation.id %}">
+                Conversation with {% for participant in conversation.participants.all %}{{ participant.username }}{% if not forloop.last %}, {% endif %}{% endfor %}
+            </a>
+        </li>
+    {% empty %}
+        <li>No conversations</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'messagerie:compose_message' %}">Compose New Message</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>Résultats de Matchmaking</h2>
+    <ul>
+        {% for request in matching_requests %}
+            <li>
+                <strong>{{ request.utilisateur.username }}</strong> cherche un match avec les critères :
+                <ul>
+                    <li>Niveau: {{ request.niveau_recherche }}</li>
+                    <li>Style de Jeu: {{ request.style_jeu_recherche }}</li>
+                    <li>Région: {{ request.region_recherche }}</li>
+                    <li>Langue: {{ request.langue_recherche }}</li>
+                </ul>
+            </li>
+        {% empty %}
+            <li>Aucun résultat trouvé.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

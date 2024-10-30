@@ -1,0 +1,140 @@
+/* static/css/footer.css */
+
+@import url('variables.css');
+
+/* ==========================
+   Footer Layout
+   ========================== */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#main-content {
+    flex: 1; /* Permet au contenu principal de prendre tout l'espace vertical disponible */
+}
+
+/* ==========================
+   Footer
+   ========================== */
+.site-footer {
+    background-color: var(--background-light); /* Fond clair pour le footer */
+    color: var(--text-color); /* Couleur du texte principale */
+    padding: var(--padding-medium) 0;
+    border-top: var(--border-width-thin) var(--border-style) var(--gray-light); /* Bordure subtile au-dessus */
+    width: 100%; /* Assure que le footer prend toute la largeur */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+    box-shadow: var(--shadow-small); /* Ombre douce pour le footer */
+}
+
+.footer-container {
+    max-width: 1200px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 0 var(--padding-medium); /* Espacement latéral */
+    box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--padding-medium); /* Espacement entre les sections */
+}
+
+.footer-section {
+    flex: 1 1 250px; /* Flexbox avec une largeur minimale pour les sections */
+    padding: var(--padding-medium); /* Ajoute un padding interne pour les sections */
+    box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
+    background-color: var(--background-light); /* Fond clair pour les sections */
+    border-radius: var(--border-radius); /* Coins arrondis pour un aspect moderne */
+    box-shadow: var(--shadow-small); /* Ombre douce autour des sections */
+}
+
+.footer-section h3 {
+    font-size: var(--font-size-large);
+    margin-bottom: var(--margin-small);
+    color: var(--primary-color); /* Couleur des titres */
+}
+
+.footer-section p {
+    font-size: var(--font-size-medium);
+    line-height: var(--line-height-loose); /* Espacement entre les lignes */
+    margin: var(--margin-small) 0;
+}
+
+.footer-section a {
+    color: var(--primary-color); /* Couleur des liens */
+    text-decoration: none;
+    transition: color var(--transition-speed), border-bottom var(--transition-speed); /* Transition fluide pour le hover */
+}
+
+.footer-section a:hover {
+    color: var(--primary-color-dark); /* Couleur des liens au survol */
+    border-bottom: 1px solid var(--primary-color-dark); /* Bordure sous les liens au survol */
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: var(--margin-small); /* Espacement entre les icônes sociales */
+}
+
+.social-links li {
+    display: inline;
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: var(--icon-size-medium);
+    transition: color var(--transition-speed), transform var(--transition-speed); /* Transition fluide pour le hover */
+}
+
+.social-links a:hover {
+    color: var(--primary-color); /* Couleur des icônes sociales au survol */
+    transform: scale(1.1); /* Agrandissement des icônes sociales au survol */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: var(--padding-small) 0;
+    border-top: var(--border-width-thin) var(--border-style) var(--gray-light);
+    margin-top: var(--padding-medium);
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: var(--font-size-small);
+    color: var(--gray-dark); /* Couleur du texte dans le bas du footer */
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Les sections passent en colonne sur les petits écrans */
+        align-items: center; /* Centre les sections */
+    }
+
+    .footer-section {
+        text-align: center; /* Centre le texte des sections */
+        margin: var(--padding-small) 0;
+        max-width: 100%; /* S'assure que les sections ne dépassent pas la largeur du conteneur */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-section h3 {
+        font-size: var(--font-size-medium); /* Réduction de la taille des titres pour les très petits écrans */
+    }
+
+    .footer-section p, .footer-section a {
+        font-size: var(--font-size-small); /* Réduction de la taille du texte pour mobile */
+    }
+}
+

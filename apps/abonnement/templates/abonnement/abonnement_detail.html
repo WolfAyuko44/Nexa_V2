@@ -1,0 +1,38 @@
+<!-- abonnement_detail.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="abonnement-details">
+    <h1>Détails de votre Abonnement</h1>
+    <p><strong>Type d'Abonnement :</strong> {{ abonnement.type_abonnement.nom }}</p>
+    <p><strong>Date de Début :</strong> {{ abonnement.date_debut }}</p>
+    <p><strong>Date de Fin :</strong> {{ abonnement.date_fin }}</p>
+    <p><strong>Badge d'Abonnement :</strong> {% if abonnement.badge_abonnement %} Oui {% else %} Non {% endif %}</p>
+
+    <h2>Changer votre Abonnement</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="type_abonnement">Choisissez un nouvel abonnement :</label>
+        <select name="type_abonnement" id="type_abonnement">
+            {% for type in types_abonnement %}
+                <option value="{{ type.id }}">{{ type.nom }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Modifier l'Abonnement</button>
+    </form>
+
+    <!-- Ajouter des fonctionnalités supplémentaires ici -->
+    <h2>Fonctionnalités de votre Abonnement</h2>
+    <ul>
+        {% if abonnement.type_abonnement.nom == "Premium" %}
+            <li>Accès exclusif à des contenus spéciaux.</li>
+            <li>Support client prioritaire.</li>
+            <li>Évaluations et badges supplémentaires.</li>
+        {% else %}
+            <li>Accès aux contenus standards.</li>
+            <li>Support client standard.</li>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}

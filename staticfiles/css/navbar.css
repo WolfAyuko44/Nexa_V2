@@ -1,0 +1,164 @@
+@import url('variables.css');
+
+/* ==========================
+   Navbar
+   ========================== */
+.site-navbar {
+    background-color: var(--white-color);
+    box-shadow: var(--shadow-small);
+    padding: var(--padding-small) var(--padding-medium);
+    position: sticky;
+    top: var(--navbar-height); /* Ajusté pour la hauteur du header */
+    z-index: 999; /* Moins que le header pour éviter le chevauchement */
+    border-bottom: var(--border-width-thin) var(--border-style) var(--gray-light); /* Bordure subtile */
+}
+
+.site-navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar-header {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-toggle {
+    display: none; /* Caché par défaut */
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: var(--padding-small);
+    transition: background-color var(--transition-speed);
+}
+
+.navbar-toggle:hover {
+    background-color: var(--gray-light); /* Fond au survol */
+}
+
+.navbar-toggle-icon {
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    display: block;
+    margin: 5px 0;
+}
+
+.navbar-menu {
+    flex: 1;
+}
+
+.navbar-menu-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* Répartition uniforme des éléments */
+    align-items: center;
+}
+
+.navbar-menu-items li {
+    position: relative;
+}
+
+.navbar-menu-items a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: var(--font-size-medium);
+    display: flex;
+    align-items: center;
+    padding: var(--padding-small) var(--padding-medium);
+    transition: color var(--transition-speed), background-color var(--transition-speed);
+    border-radius: var(--border-radius);
+}
+
+.navbar-menu-items a:hover {
+    color: var(--primary-color);
+    background-color: var(--gray-light); /* Fond au survol */
+}
+
+.navbar-menu-items i {
+    margin-right: var(--margin-small);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: var(--padding-small) var(--padding-medium);
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white-color);
+    box-shadow: var(--shadow-small);
+    z-index: 1000;
+    min-width: 180px; /* Largeur minimale du menu déroulant */
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Évite les débordements */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: var(--padding-small) var(--padding-medium);
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: var(--font-size-medium);
+}
+
+.dropdown-content a:hover {
+    background-color: var(--gray-light); /* Fond au survol */
+}
+
+/* ==========================
+   Responsive Design for Navbar
+   ========================== */
+@media (max-width: 768px) {
+    .site-navbar {
+        padding: var(--padding-small) var(--padding-small);
+    }
+
+    .navbar-menu {
+        display: none; /* Caché sur petits écrans */
+        width: 100%;
+    }
+
+    .navbar-menu-items {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+    }
+
+    .navbar-menu-items li {
+        text-align: center;
+    }
+
+    .navbar-toggle {
+        display: block; /* Affiché sur petits écrans */
+    }
+
+    .dropdown-content {
+        position: static; /* Menu déroulant en dessous du toggle */
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: none; /* Désactiver le hover */
+    }
+}

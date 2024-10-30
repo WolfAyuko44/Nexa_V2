@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil - Réseau Social des Joueurs{% endblock %}
+
+{% block meta_description %}Découvrez le réseau social ultime pour les joueurs de jeux vidéo. Connectez-vous, partagez du contenu, et trouvez des coéquipiers avec nous.{% endblock %}
+{% block meta_keywords %}réseau social, jeux vidéo, joueurs, contenu, matchmaking{% endblock %}
+{% load static %}
+
+{% block og_title %}Bienvenue sur le Réseau Social des Joueurs{% endblock %}
+{% block og_description %}Rejoignez notre communauté dédiée aux joueurs pour explorer, partager et connecter avec d'autres passionnés de jeux vidéo.{% endblock %}
+{% block og_image %}{% static 'images/home-og-image.jpg' %}{% endblock %}
+{% block og_url %}{% url 'utilisateurs:home' %}{% endblock %}
+
+{% block twitter_title %}Réseau Social des Joueurs - Découvrez, Connectez, Partagez{% endblock %}
+{% block twitter_description %}Une plateforme dédiée aux joueurs pour partager des contenus, trouver des coéquipiers et discuter des stratégies de jeu.{% endblock %}
+{% block twitter_image %}{% static 'images/home-twitter-image.jpg' %}{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section class="home-hero">
+            <div class="home-hero-content">
+                <h1 class="animate-fadein">Bienvenue sur Nexa</h1>
+                <p class="animate-fadein-delay">Connectez-vous avec vos amis et le monde qui vous entoure.</p>
+                <div class="home-hero-buttons">
+                    <a href="{% url 'utilisateurs:signup' %}" class="btn btn-primary animate-slidein">Inscrivez-vous</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-features">
+            <div class="container">
+                <div class="home-feature animate-zoom">
+                    <div class="home-feature-text">
+                        <h2>Profils Utilisateurs</h2>
+                        <p>Créez des profils personnalisés, affichez vos statistiques de jeu, et personnalisez votre espace avec des auras, bannières, et badges.</p>
+                    </div>
+                </div>
+
+                <div class="home-feature animate-zoom">
+                    <div class="home-feature-text">
+                        <h2>Partage de Contenus</h2>
+                        <p>Partagez vos clips vidéo, captures d’écran, et moments forts. Commentez et réagissez aux contenus des autres membres.</p>
+                    </div>
+                </div>
+
+                <div class="home-feature animate-zoom">
+                    <div class="home-feature-text">
+                        <h2>Notifications et Messagerie</h2>
+                        <p>Recevez des notifications personnalisées et discutez en privé avec vos amis et membres de la communauté.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

@@ -1,0 +1,135 @@
+@import url('variables.css');
+
+/* ==========================
+   Header
+   ========================== */
+.site-header {
+    background-color: var(--white-color);
+    box-shadow: var(--shadow-small);
+    padding: var(--padding-small) var(--padding-large); /* Espacement généreux pour une meilleure apparence */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--border-width-thin) var(--border-style) var(--gray-light); /* Bordure subtile */
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: center; /* Centrer le contenu dans le header */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.logo {
+    flex: 0 1 auto;
+    border-radius: var(--border-radius); /* Coins arrondis pour le logo */
+    overflow: hidden; /* Évite les débordements du logo */
+}
+
+.logo img {
+    height: 50px; /* Taille du logo */
+    object-fit: contain;
+    transition: transform var(--transition-speed); /* Transition fluide pour le hover */
+    border-radius: var(--border-radius); /* Coins arrondis pour le logo */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Agrandissement au survol */
+}
+
+.header-content {
+    flex: 1;
+    text-align: center;
+    padding: var(--padding-small);
+    margin-left: var(--margin-medium); /* Marge à gauche pour éloigner le titre du logo */
+    margin-right: var(--margin-medium); /* Marge à droite pour équilibrer le titre */
+}
+
+.header-content h1 {
+    font-size: var(--font-size-xlarge);
+    margin: var(--margin-small) 0;
+    color: var(--text-color);
+    font-weight: var(--font-weight-bold);
+}
+
+.header-content p {
+    font-size: var(--font-size-medium);
+    color: var(--light-text-color);
+    margin: var(--margin-small) 0;
+    line-height: var(--line-height-normal); /* Espacement entre les lignes pour une meilleure lisibilité */
+}
+
+.header-right {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    gap: var(--margin-small); /* Espacement entre les éléments */
+}
+
+.profile-icon, .notifications-icon {
+    width: var(--icon-size-medium);
+    height: var(--icon-size-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Icônes rondes */
+    background-color: var(--gray-light); /* Fond des icônes */
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.profile-icon img, .notifications-icon img {
+    width: var(--icon-size-small); /* Taille des icônes */
+    height: var(--icon-size-small);
+}
+
+.profile-icon:hover, .notifications-icon:hover {
+    background-color: var(--primary-color); /* Changement de couleur au survol */
+    transform: scale(1.1); /* Agrandissement au survol */
+}
+
+.profile-icon a, .notifications-icon a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        padding: var(--padding-medium) var(--padding-small); /* Ajustement des espacements pour les petits écrans */
+    }
+
+    .header-content {
+        padding: 0;
+        margin: 0; /* Réinitialiser les marges pour les petits écrans */
+    }
+
+    .header-right {
+        margin-top: var(--margin-medium); /* Espacement au-dessus des icônes */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 40px; /* Réduction de la taille du logo pour les très petits écrans */
+    }
+
+    .header-content h1 {
+        font-size: var(--font-size-large); /* Réduction de la taille du titre pour mobile */
+    }
+
+    .header-content p {
+        font-size: var(--font-size-small); /* Réduction de la taille du sous-titre pour mobile */
+    }
+}

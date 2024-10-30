@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Mes Notifications{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Mes Notifications</h1>
+        <ul id="notification-list" class="list-group">
+            {% for notification in notifications %}
+                <li class="list-group-item {% if not notification.is_read %}list-group-item-primary{% endif %}">
+                    {{ notification.message }} - {{ notification.created_at|date:"d M Y H:i" }}
+                    <a href="{% url 'notifications_messagerie:mark_as_read' notification.id %}" class="btn btn-link">Marquer comme lu</a>
+                </li>
+            {% empty %}
+                <li class="list-group-item">Aucune notification à afficher.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        const notificationSocket = new WebSocket(
+            'ws://' + window.location.host + '/ws/notifications/'
+        );
+    
+        notificationSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            const notificationList = document.getElementById('notification-list');
+            const newNotification = document.createElement('li');
+            newNotification.className = "list-group-item list-group-item-primary";  // Ajout de la classe pour une notification non lue
+            newNotification.innerText = data.message + " - " + new Date(data.created_at).toLocaleString();
+            notificationList.appendChild(newNotification);
+        };
+    
+        notificationSocket.onclose = function(e) {
+            console.error('Socket fermé de façon inattendue');
+        };
+    </script>    
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="post-detail">
+        <div class="post">
+            <div class="post-header">
+                <img src="{{ post.user.profile.avatar.url }}" alt="Avatar" class="avatar">
+                <span class="username">{{ post.user.username }}</span>
+            </div>
+            <div class="post-image">
+                <img src="{{ post.image.url }}" alt="Image de la publication">
+            </div>
+            <div class="post-caption">
+                <p><strong>{{ post.user.username }}</strong> {{ post.caption }}</p>
+                <p><small>{{ post.created_at|timesince }} ago</small></p>
+            </div>
+            <div class="post-actions">
+                <form action="{% url 'like_post' post.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="like-btn">
+                        <i class="fas fa-heart"></i> 
+                        <span>{{ post.likes_count }}</span> J'aime
+                    </button>
+                </form>
+                
+                <button class="comment-btn"><i class="fas fa-comment"></i> Commenter</button>
+            </div>
+            
+            <div class="post-comments">
+                <h3>Commentaires</h3>
+                <div class="comments-list">
+                    {% for comment in post.comments.all %}
+                        <div class="comment">
+                            <strong>{{ comment.user.username }}</strong> {{ comment.text }}
+                            <small>{{ comment.created_at|timesince }} ago</small>
+                        </div>
+                    {% empty %}
+                        <p>Soyez le premier à commenter !</p>
+                    {% endfor %}
+                </div>
+
+                <form action="{% url 'add_comment' post.id %}" method="POST" class="add-comment-form">
+                    {% csrf_token %}
+                    <input type="text" name="text" placeholder="Ajouter un commentaire..." required class="comment-input">
+                    <button type="submit" class="btn">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

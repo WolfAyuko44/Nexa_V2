@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/boutique.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="boutique-container">
+        <!-- Entête de la boutique -->
+        <div class="boutique-header">
+            <h1 class="text-center">Boutique</h1>
+        </div>
+
+        <!-- Sélecteur de catégorie -->
+        <div class="filter-section">
+            <form method="GET" action="{% url 'monétisation:boutique' %}">
+                <div class="filter-container">
+                    <label for="categorie">Catégorie :</label>
+                    <select name="categorie" id="categorie" onchange="this.form.submit()">
+                        <option value="">Toutes les catégories</option>
+                        {% for categorie in categories %}
+                            <option value="{{ categorie }}" {% if categorie_selectionnee == categorie %}selected{% endif %}>
+                                {{ categorie }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <!-- Liste des articles -->
+        <div class="article-list">
+            {% for article in articles %}
+                <div class="article-item">
+                    {% if article.image %}
+                        <img src="{{ article.image.url }}" alt="{{ article.nom }}" class="article-image">
+                    {% endif %}
+                    <h3>{{ article.nom }}</h3>
+                    <p>{{ article.description }}</p>
+                    <div class="price">{{ article.prix }} €</div>
+                    <a href="{% url 'monétisation:article_detail' article.id %}" class="btn">Voir les détails</a>
+                </div>
+            {% empty %}
+                <p>Aucun article disponible dans cette catégorie.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

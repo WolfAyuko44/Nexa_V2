@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>Achat de {{ article.nom }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="quantite">Quantité:</label>
+        <input type="number" id="quantite" name="quantite" min="1" value="1">
+        <button type="submit">Confirmer l'achat</button>
+    </form>
+{% endblock %}

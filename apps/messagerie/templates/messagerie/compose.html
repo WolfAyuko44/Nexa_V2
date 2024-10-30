@@ -1,0 +1,23 @@
+<!-- messagerie/templates/messagerie/compose.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Compose New Message</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+        <label for="recipients">Recipients:</label>
+        <select name="recipients" multiple>
+            {% for user in users %}
+                <option value="{{ user.username }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Send</button>
+</form>
+
+<a href="{% url 'messagerie:inbox' %}">Back to Inbox</a>
+{% endblock %}

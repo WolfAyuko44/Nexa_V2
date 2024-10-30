@@ -1,0 +1,276 @@
+/* groups.css */
+
+/* ==========================
+   Global Styles
+   ========================== */
+   body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* ==========================
+   Container
+   ========================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+}
+
+/* ==========================
+   Centered Container
+   ========================== */
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.centered-container h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* ==========================
+   Headings and Text
+   ========================== */
+h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* ==========================
+   Buttons
+   ========================== */
+button, .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:focus, .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}
+
+/* ==========================
+   Forms
+   ========================== */
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+form button {
+    padding: 12px 20px;
+    font-size: 1rem;
+}
+
+/* ==========================
+   Group Detail
+   ========================== */
+.group-detail {
+    margin-top: 20px;
+}
+
+.group-detail h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.group-detail p {
+    margin-bottom: 20px;
+}
+
+.group-detail ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.group-detail ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fafafa;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* ==========================
+   Group List
+   ========================== */
+.group-list {
+    margin-top: 20px;
+}
+
+.group-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.group-list ul li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fafafa;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.group-list ul li a {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* ==========================
+   Responsive Design
+   ========================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .centered-container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .group-list ul li a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Style pour le bouton secondaire */
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #6c757d; /* Couleur de fond grise */
+    color: #fff; /* Couleur du texte blanc */
+    border: 1px solid #6c757d;
+    margin-bottom: 20px; /* Espacement sous le bouton */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Couleur de fond au survol */
+    border-color: #545b62;
+}
+
+/* Style pour les détails du groupe */
+.group-details {
+    margin-bottom: 20px; /* Espacement sous les détails du groupe */
+    padding: 20px;
+    background-color: #f8f9fa; /* Couleur de fond légèrement grise */
+    border: 1px solid #e9ecef; /* Bordure autour des détails */
+    border-radius: 5px;
+}
+
+.group-details p {
+    margin: 10px 0;
+}
+
+/* Style pour la liste des membres */
+.member-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.member-list li {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.member-list li::before {
+    content: "• "; /* Utilisation d'un point pour les éléments de liste */
+    color: #007bff; /* Couleur du point */
+    font-weight: bold;
+}

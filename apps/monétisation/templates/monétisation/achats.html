@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Mes Achats</h2>
+    <ul>
+        {% for achat in achats %}
+            <li>
+                <strong>{{ achat.article.nom }}</strong> - Quantité: {{ achat.quantite }} - Date: {{ achat.date_achat }}
+            </li>
+        {% empty %}
+            <p>Aucun achat enregistré.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}

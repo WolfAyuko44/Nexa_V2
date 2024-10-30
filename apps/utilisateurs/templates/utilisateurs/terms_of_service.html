@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Conditions d'Utilisation{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/conditions_utilisation.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="conditions-utilisation">
+    <div class="container">
+        <h1>Conditions d'Utilisation</h1>
+        <p>Bienvenue sur la page des conditions d'utilisation de notre plateforme. Veuillez lire attentivement ces conditions avant d'utiliser notre service.</p>
+        
+        <h2>1. Acceptation des Conditions</h2>
+        <p>En utilisant notre plateforme, vous acceptez de vous conformer aux conditions décrites dans ce document. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre service.</p>
+
+        <h2>2. Modifications des Conditions</h2>
+        <p>Nous nous réservons le droit de modifier ces conditions à tout moment. Les modifications seront publiées sur cette page avec une date de révision. Il est de votre responsabilité de consulter régulièrement cette page pour être informé des changements.</p>
+
+        <h2>3. Utilisation du Service</h2>
+        <p>Vous vous engagez à utiliser notre service de manière légale et conforme aux lois en vigueur. Vous êtes responsable de tout contenu que vous publiez et vous vous engagez à ne pas publier de contenu illégal ou nuisible.</p>
+
+        <h2>4. Propriété Intellectuelle</h2>
+        <p>Tout le contenu de notre plateforme, y compris les textes, images, logos, et autres éléments, est la propriété de notre entreprise ou de ses partenaires. Vous ne devez pas reproduire, distribuer ou utiliser ce contenu sans autorisation.</p>
+
+        <h2>5. Responsabilité</h2>
+        <p>Nous ne serons pas responsables des dommages directs ou indirects résultant de l'utilisation de notre service. Nous nous efforçons de maintenir notre plateforme en bon état de fonctionnement, mais nous ne garantissons pas qu'elle sera toujours disponible ou sans erreur.</p>
+
+        <h2>6. Contact</h2>
+        <p>Pour toute question concernant ces conditions d'utilisation, veuillez nous contacter à l'adresse suivante : <a href="mailto:support@monreseausocial.com">support@monreseausocial.com</a>.</p>
+    </div>
+</main>
+{% endblock %}

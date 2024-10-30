@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Souscrire à un Abonnement Premium</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title">Abonnement Premium</h4>
+            <p>Profitez d'un accès exclusif à nos contenus et fonctionnalités avancées.</p>
+            <h5>Fonctionnalités de l'Abonnement Premium</h5>
+            <ul class="list-group mb-4">
+                <li class="list-group-item">🚀 Accès exclusif à des contenus spéciaux.</li>
+                <li class="list-group-item">🛠️ Support client prioritaire 24/7.</li>
+                <li class="list-group-item">🏆 Évaluations et badges supplémentaires.</li>
+                <li class="list-group-item">📚 Accès à des ressources pédagogiques exclusives.</li>
+                <li class="list-group-item">📈 Statistiques détaillées sur votre utilisation.</li>
+            </ul>
+            <p><strong>Prix :</strong> <span class="text-success">14,99 € / mois</span></p>
+
+            <!-- Bouton de souscription -->
+            <form action="{% url 'abonnement:create_checkout_session' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success mt-4">Souscrire</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Inclure le script Stripe si nécessaire (par exemple pour redirection ou confirmation) -->
+<script src="https://js.stripe.com/v3/"></script>
+{% endblock %}

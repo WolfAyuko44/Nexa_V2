@@ -1,0 +1,18 @@
+<!-- apps/messagerie/templates/messagerie/conversation_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Liste des Conversations</h1>
+    <ul>
+        {% for conversation in conversations %}
+            <li>
+                <a href="{% url 'messagerie:conversation_detail' conversation.id %}">
+                    Conversation avec {{ conversation.participants.all|join:", " }}
+                </a>
+            </li>
+        {% empty %}
+            <li>Aucune conversation</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

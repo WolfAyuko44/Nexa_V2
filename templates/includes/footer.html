@@ -1,0 +1,33 @@
+{% load static %}
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>À Propos</h3>
+                <p>{{ SITE_NAME }} est une plateforme pour connecter les joueurs, partager du contenu, et discuter de sujets passionnants.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Liens Utiles</h3>
+                <ul>
+                    <li><a href="{% url 'utilisateurs:privacy_policy' %}">Politique de Confidentialité</a></li>
+                    <li><a href="{% url 'utilisateurs:terms_of_service' %}">Conditions d'Utilisation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:support@nexa.com">support@nexa.com</a></p>
+                <p>Téléphone: +33 1 23 45 67 89</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Nexa. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- CSS pour le Footer -->
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<!-- JS pour le Footer -->
+<script src="{% static 'js/footer.js' %}" defer></script>

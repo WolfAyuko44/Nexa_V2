@@ -1,0 +1,86 @@
+:root {
+    /* Couleurs principales Instagram */
+    --primary-color: #3897f0; /* Bleu Instagram pour les boutons principaux */
+    --primary-color-dark: #2c86c1; /* Bleu foncé pour le hover */
+    --secondary-color: #262626; /* Couleur de texte noire pour les éléments principaux */
+    --secondary-color-dark: #000000; /* Noir pur pour les textes importants */
+    --accent-color: #ed4956; /* Rouge pour les éléments importants comme le bouton j'aime */
+    --background-color: #ffffff; /* Fond clair d'Instagram */
+    --background-light: #ffffff; /* Fond des cartes et modals */
+    --text-color: #262626; /* Couleur de texte principale */
+    --light-text-color: #999999; /* Texte secondaire ou inactif */
+    --white-color: #ffffff; /* Blanc pur */
+    --gray-light: #dbdbdb; /* Gris clair pour les bordures */
+    --gray-dark: #8e8e8e; /* Gris foncé pour les textes secondaires */
+    --border-radius: 3px; /* Coins légèrement arrondis */
+
+    /* Effets d'ombre */
+    --shadow-small: 0 1px 3px rgba(0, 0, 0, 0.12); /* Ombre douce pour les éléments mineurs */
+    --shadow-medium: 0 3px 6px rgba(0, 0, 0, 0.16); /* Ombre pour les cartes */
+    --shadow-large: 0 10px 20px rgba(0, 0, 0, 0.19); /* Ombre plus prononcée pour les modals */
+
+    /* Transitions */
+    --transition-speed: 0.2s; /* Transitions rapides pour les interactions */
+    --transition-fast: 0.1s;
+    --transition-slow: 0.4s;
+
+    /* Tailles */
+    --font-size-small: 0.875rem; /* Petite taille pour les textes secondaires */
+    --font-size-medium: 1rem; /* Taille par défaut */
+    --font-size-large: 1.125rem; /* Texte légèrement plus grand pour les éléments importants */
+    --font-size-xlarge: 1.5rem; /* Titres ou éléments très importants */
+    --line-height-normal: 1.4; /* Ligne standard pour le texte */
+    --line-height-loose: 1.6;
+
+    /* Espacements */
+    --padding-small: 0.5rem; /* Espacement plus serré */
+    --padding-medium: 1rem; /* Espacement standard */
+    --padding-large: 1.5rem; /* Espacement plus généreux */
+    --margin-small: 0.5rem;
+    --margin-medium: 1rem;
+    --margin-large: 1.5rem;
+
+    /* Bordures */
+    --border-width-thin: 1px;
+    --border-width-thick: 2px;
+    --border-style: solid;
+    --border-color-light: #dbdbdb; /* Gris clair pour les bordures */
+    --border-color-dark: #999999;
+
+    /* Typographie */
+    --font-family-sans: 'Roboto', 'Helvetica Neue', sans-serif; /* Police similaire à Instagram */
+    --font-weight-normal: 400;
+    --font-weight-bold: 600;
+
+    /* Couleurs supplémentaires */
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+
+    /* Grilles */
+    --grid-columns: 12;
+    --grid-gutter: 1rem;
+
+    /* Couleurs des états interactifs */
+    --hover-color: #3897f0; /* Bleu pour le hover */
+    --active-color: #2c86c1; /* Bleu foncé pour l'état actif */
+    --focus-color: #3897f0; /* Bleu pour l'état focus */
+
+    /* Taille des icônes */
+    --icon-size-small: 1rem;
+    --icon-size-medium: 1.5rem;
+    --icon-size-large: 2rem;
+
+    /* Dimensions spécifiques */
+    --card-width: 350px; /* Largeur ajustée pour les cartes de profil */
+    --modal-width: 500px; /* Largeur pour les modals */
+    --navbar-height: 60px; /* Hauteur de la barre de navigation */
+    --footer-height: 60px; /* Hauteur du footer */
+
+    /* Modes d'affichage */
+    --display-flex: flex;
+    --display-grid: grid;
+    --display-block: block;
+    --display-inline: inline;
+}

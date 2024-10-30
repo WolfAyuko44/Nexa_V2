@@ -1,0 +1,67 @@
+/* ==========================
+   Conditions d'Utilisation
+   ========================== */
+
+   .conditions-utilisation {
+    background-color: var(--background-color);
+    padding: var(--padding-large) 0;
+    color: var(--text-color);
+    font-family: var(--font-family-sans);
+}
+
+.conditions-utilisation .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--padding-medium);
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-small);
+}
+
+.conditions-utilisation h1 {
+    font-size: var(--font-size-xlarge);
+    margin-bottom: var(--margin-medium);
+    border-bottom: var(--border-width-thin) solid var(--gray-light);
+    padding-bottom: var(--padding-small);
+    color: var(--secondary-color-dark);
+}
+
+.conditions-utilisation h2 {
+    font-size: var(--font-size-large);
+    margin-top: var(--margin-large);
+    margin-bottom: var(--margin-small);
+    color: var(--secondary-color);
+}
+
+.conditions-utilisation p {
+    font-size: var(--font-size-medium);
+    line-height: var(--line-height-loose);
+    margin-bottom: var(--margin-medium);
+}
+
+.conditions-utilisation a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.conditions-utilisation a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .conditions-utilisation {
+        padding: var(--padding-medium) 0;
+    }
+
+    .conditions-utilisation .container {
+        padding: var(--padding-small);
+    }
+
+    .conditions-utilisation h1 {
+        font-size: var(--font-size-large);
+    }
+
+    .conditions-utilisation h2 {
+        font-size: var(--font-size-medium);
+    }
+}

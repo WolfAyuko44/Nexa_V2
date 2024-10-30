@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Profil de {{ utilisateur.username }}{% endblock %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="profile-container-mod container">
+        <div class="profile-header-mod">
+            <div class="profile-avatar-mod profile-image">
+                <img src="{{ utilisateur.get_avatar_url }}" alt="Avatar de {{ utilisateur.username }}" class="profile-image-img">
+            </div>
+            <div class="profile-info-mod profile-details">
+                <h1>{{ utilisateur.username }}</h1>
+                <p><strong>Bio :</strong> {{ utilisateur.bio|default:"Non renseignée" }}</p>
+
+                <div class="profile-stats-bar">
+                    <div class="profile-stat-item">
+                        <strong>{{ utilisateur.posts.count|default_if_none:"0" }}</strong>
+                        <p>Posts</p>
+                    </div>
+                    <div class="profile-stat-item">
+                        <strong>{{ utilisateur.followers.count|default_if_none:"0" }}</strong>
+                        <p>Abonnés</p>
+                    </div>
+                    <div class="profile-stat-item">
+                        <strong>{{ utilisateur.following.count|default_if_none:"0" }}</strong>
+                        <p>Abonnements</p>
+                    </div>
+                </div>
+
+                {% if request.user == utilisateur %}
+                    <div class="profile-actions">
+                        <a href="{% url 'utilisateurs:create_post' %}" class="btn btn-primary">Créer un post</a>
+                        <a href="{% url 'user_settings:settings' %}" class="btn btn-primary">Paramètres</a>
+                        <!-- Affichage des abonnements -->
+                        {% for abonnement in abonnements %}
+                            <p>{{ abonnement.type_abonnement }} - {{ abonnement.date_debut }}</p>
+                            <a href="{% url 'supprimer_abonnement' abonnement.id %}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet abonnement ?');">Supprimer</a>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="profile-actions">
+                        <button class="follow-btn">S'abonner</button>
+                        <button class="message-btn">Envoyer un message</button>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="profile-content-mod">
+            <h2>Mes Posts</h2>
+            <div class="posts-gallery">
+                {% for post in utilisateur.posts.all %}
+                <div>
+                    <a href="{% url 'utilisateurs:post_details' post.id %}">
+                        <img src="{{ post.image.url }}" alt="{{ post.description|default:'Aucun titre' }}" class="post-image">
+                        <p>{{ post.description|default:"Aucun titre" }}</p>
+                    </a>
+                    <div class="post-actions">
+                        <button class="like-btn">❤️ Like</button>
+                        <button class="comment-btn">💬 Commenter</button>
+                        {% if request.user == post.utilisateur %}
+                        <button class="delete-btn" onclick="confirmDelete('{{ post.id }}')">🗑️ Supprimer</button>
+                        {% endif %}
+                    </div>
+                </div>
+                {% empty %}
+                <p>Aucun post à afficher.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function confirmDelete(postId) {
+            if (confirm("Êtes-vous sûr de vouloir supprimer ce post ?")) {
+                // Correction de l'URL ici, en utilisant postId directement
+                window.location.href = "{% url 'utilisateurs:post_delete' '0' %}".replace('0', postId); 
+            }
+        }
+    </script>    
+{% endblock %}

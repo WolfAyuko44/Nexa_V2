@@ -1,0 +1,460 @@
+@import url('variables.css');
+
+/* ==========================
+   Base du document
+   ========================== */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================
+   Conteneur principal
+   ========================== */
+.main-content {
+    flex: 1;
+    padding: var(--padding-medium);
+}
+
+/* ==========================
+   Hero Section (Page d'accueil)
+   ========================== */
+.home-hero {
+    text-align: center;
+    padding: var(--padding-large) var(--padding-medium);
+    background-color: var(--gray-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    margin: var(--margin-medium) 0;
+}
+
+.home-hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.home-hero h1 {
+    font-size: var(--font-size-xlarge);
+    margin-bottom: var(--margin-medium);
+    color: var(--text-color);
+    text-shadow: 1px 1px var(--shadow-small);
+}
+
+.home-hero p {
+    font-size: var(--font-size-medium);
+    margin-bottom: var(--margin-large);
+    color: var(--light-text-color);
+}
+
+.home-hero .btn {
+    display: inline-block;
+    padding: var(--padding-small) var(--padding-medium);
+    font-size: var(--font-size-medium);
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.home-hero .btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-small);
+}
+
+/* ==========================
+   Features Section (Page d'accueil)
+   ========================== */
+.home-features {
+    padding: var(--padding-large) var(--padding-medium);
+    background-color: var(--white-color);
+}
+
+.home-features .container {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--margin-medium);
+    flex-wrap: wrap;
+}
+
+.home-features .home-feature {
+    flex: 1;
+    text-align: center;
+    box-shadow: var(--shadow-medium);
+    padding: var(--padding-medium);
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    max-width: calc(33.333% - var(--margin-medium));
+    transition: transform var(--transition-speed);
+    overflow: hidden;
+}
+
+.home-features .home-feature:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-large);
+}
+
+.home-features .home-feature img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-speed);
+}
+
+.home-features .home-feature img:hover {
+    transform: scale(1.1);
+}
+
+.home-features .home-feature h2 {
+    font-size: var(--font-size-large);
+    margin: var(--margin-medium) 0 var(--margin-small);
+}
+
+.home-features .home-feature p {
+    font-size: var(--font-size-medium);
+    color: var(--light-text-color);
+}
+
+/* ==========================
+   Animations
+   ========================== */
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================
+   Hover Effects
+   ========================== */
+.hover-effect {
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.hover-effect:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-medium);
+}
+
+/* ==========================
+   Icons
+   ========================== */
+.icon {
+    font-size: var(--icon-size-medium);
+    color: var(--primary-color);
+}
+
+/* ==========================
+   Buttons
+   ========================== */
+.btn {
+    display: inline-block;
+    padding: var(--padding-small) var(--padding-medium);
+    font-size: var(--font-size-medium);
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-small);
+}
+
+/* ==========================
+   Additional Styles
+   ========================== */
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mb-small {
+    margin-bottom: var(--margin-small);
+}
+
+.mb-medium {
+    margin-bottom: var(--margin-medium);
+}
+
+.mb-large {
+    margin-bottom: var(--margin-large);
+}
+
+/* ==========================
+   Login & Register Page Styles
+   ========================== */
+.login-container, .register-container {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: var(--padding-large);
+    background-color: var(--background-light);
+    box-shadow: var(--shadow-medium);
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-family: var(--font-family);
+    transition: box-shadow var(--transition-speed);
+}
+
+.login-container:hover, .register-container:hover {
+    box-shadow: var(--shadow-large);
+}
+
+.login-container h1, .register-container h1 {
+    font-size: var(--font-size-xlarge);
+    margin-bottom: var(--margin-medium);
+    color: var(--text-color);
+}
+
+.login-container .form-group, .register-container .form-group {
+    margin-bottom: var(--margin-medium);
+    text-align: left;
+}
+
+.login-container .form-group label, .register-container .form-group label {
+    display: block;
+    margin-bottom: var(--margin-small);
+    font-weight: var(--font-weight-bold);
+    color: var(--gray-dark);
+}
+
+.login-container .form-group input, .register-container .form-group input {
+    width: 100%;
+    padding: var(--padding-small);
+    border: 1px solid var(--gray-light);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-medium);
+    color: var(--text-color);
+    box-sizing: border-box;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.login-container .form-group input:focus, .register-container .form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+.login-container .btn, .register-container .btn {
+    display: inline-block;
+    width: 100%;
+    padding: var(--padding-medium);
+    font-size: var(--font-size-medium);
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.login-container .btn:hover, .register-container .btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.login-container p, .register-container p {
+    margin-top: var(--margin-large);
+    color: var(--gray-dark);
+}
+
+.login-container p a, .register-container p a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.login-container p a:hover, .register-container p a:hover {
+    color: var(--secondary-color);
+}
+
+/* ==========================
+   Responsive Design
+   ========================== */
+@media (max-width: 768px) {
+    .home-features .container,
+    .about-section .container,
+    .login-container,
+    .register-container {
+        flex-direction: column;
+    }
+
+    .home-features .home-feature,
+    .about-feature,
+    .login-container,
+    .register-container {
+        max-width: 100%;
+    }
+
+    .login-container h1, .register-container h1 {
+        font-size: var(--font-size-large);
+    }
+
+    .login-container .form-group input, .register-container .form-group input {
+        font-size: var(--font-size-small);
+    }
+
+    .login-container .btn, .register-container .btn {
+        font-size: var(--font-size-small);
+    }
+}
+
+@media (max-width: 480px) {
+    .home-hero h1 {
+        font-size: var(--font-size-large);
+    }
+
+    .home-hero p {
+        font-size: var(--font-size-small);
+    }
+
+    .home-hero .btn {
+        padding: var(--padding-small) var(--padding-medium);
+        font-size: var(--font-size-small);
+    }
+
+    .login-container, .register-container {
+        max-width: 100%;
+        padding: var(--padding-small);
+    }
+
+    .login-container h1, .register-container h1 {
+        font-size: var(--font-size-small);
+    }
+
+    .login-container .form-group input, .register-container .form-group input {
+        font-size: var(--font-size-xsmall);
+    }
+
+    .login-container .btn, .register-container .btn {
+        font-size: var(--font-size-xsmall);
+    }
+}
+
+/* Variables */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --text-color: #333333;
+    --bg-color: #ffffff;
+    --white: #ffffff;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --font-family: 'Roboto', sans-serif;
+}
+
+/* Base du document */
+body, html {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Conteneur principal */
+.main-content {
+    flex: 1;
+    padding: 2rem; /* Ajuste selon tes variables */
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 10rem 0;
+    background-image: url('/static/images/1397.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: #fff;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Boutons */
+.btn {
+    padding: 0.75rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* Sections */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
+    background-color: var(--white);
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}

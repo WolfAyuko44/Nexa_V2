@@ -1,0 +1,37 @@
+<!-- templates/payment.html -->
+<script src="https://js.stripe.com/v3/"></script>
+
+<form id="payment-form">
+    <div id="card-element"></div>
+    <button id="submit">Payer</button>
+    <div id="error-message"></div>
+</form>
+
+<script>
+    var stripe = Stripe('{{ stripe_public_key }}');  // Clé publique de Stripe
+    var elements = stripe.elements();
+    var cardElement = elements.create('card');
+    cardElement.mount('#card-element');
+
+    var form = document.getElementById('payment-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        stripe.createPaymentMethod('card', cardElement).then(function(result) {
+            if (result.error) {
+                document.getElementById('error-message').textContent = result.error.message;
+            } else {
+                var form = document.getElementById('payment-form');
+                form.appendChild(createHiddenInput('payment_method_id', result.paymentMethod.id));
+                form.submit();
+            }
+        });
+    });
+
+    function createHiddenInput(name, value) {
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        input.value = value;
+        return input;
+    }
+</script>

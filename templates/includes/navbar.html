@@ -1,0 +1,85 @@
+{% load static %}
+
+<nav class="site-navbar" aria-label="Main Navigation">
+    <div class="container">
+        <div class="navbar-header">
+            {% if user.is_authenticated %}
+                <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-menu">
+                    <span class="navbar-toggle-icon"></span>
+                    <span class="navbar-toggle-icon"></span>
+                    <span class="navbar-toggle-icon"></span>
+                </button>
+            {% endif %}
+        </div>
+
+        <div class="navbar-menu" id="navbar-menu">
+            <ul class="navbar-menu-items">
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'partage_contenu:home' %}" aria-label="Accueil">
+                            <i class="fas fa-home"></i> Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'messagerie:conversation_list' %}" class="navbar-messaging" aria-label="Messagerie">
+                            <i class="fas fa-envelope"></i> Messagerie
+                            {% if user.profile.unread_messages_count > 0 %}
+                                <span class="unread-count">{{ user.profile.unread_messages_count }}</span>
+                            {% endif %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'notifications_messagerie:notifications_list' %}" aria-label="Notifications">
+                            <i class="fas fa-bell"></i> Notifications
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" aria-label="Plus" aria-expanded="false">
+                            <i class="fas fa-bars"></i> Plus
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="{% url 'abonnement:abonnement_detail' %}" aria-label="Abonnements">
+                                <i class="fas fa-box"></i> Abonnements
+                            </a>
+                            <a href="{% url 'monétisation:boutique' %}" aria-label="Boutique">
+                                <i class="fas fa-store"></i> Boutique
+                            </a>
+                            <a href="{% url 'utilisateurs:profil_detail' username=user.username %}" aria-label="Profil">
+                                <i class="fas fa-user"></i> Profil
+                            </a>
+                            <a href="{% url 'user_settings:settings' %}" aria-label="Paramètres">
+                                <i class="fas fa-cog"></i> Paramètres
+                            </a>
+                            <a href="{% url 'utilisateurs:logout' %}" aria-label="Déconnexion">
+                                <i class="fas fa-sign-out-alt"></i> Déconnexion
+                            </a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'utilisateurs:home' %}" aria-label="Accueil">
+                            <i class="fas fa-home"></i> Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'utilisateurs:connexion' %}" aria-label="Connexion">
+                            <i class="fas fa-sign-in-alt"></i> Connexion
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'utilisateurs:signup' %}" aria-label="Inscription">
+                            <i class="fas fa-user-plus"></i> Inscription
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- CSS pour le Navbar -->
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- JS pour le Navbar -->
+<script src="{% static 'js/navbar.js' %}" defer></script>

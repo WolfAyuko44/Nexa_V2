@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>Message de {{ message.expediteur.username }}</h2>
+    <p>{{ message.contenu }}</p>
+    <p>Date d'envoi: {{ message.date_envoi }}</p>
+    <a href="{% url 'messagerie' %}">Retour à la messagerie</a>
+{% endblock %}
