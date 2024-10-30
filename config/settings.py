@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'channels',  
+    'widget_tweaks',
 
     # Your custom apps
     'apps.utilisateurs',

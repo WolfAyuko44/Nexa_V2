@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth import get_user_model
 from .models import Utilisateur, Post
+from django.contrib.auth.forms import AuthenticationForm
 
 User = get_user_model()
 
@@ -25,20 +26,9 @@ class UtilisateurModificationForm(UserChangeForm):
             'avatar': forms.ClearableFileInput(attrs={'multiple': False}),
         }
 
-class ConnexionForm(forms.Form):
-    username = forms.CharField(
-        max_length=150,
-        widget=forms.TextInput(attrs={
-            'placeholder': 'Nom d’utilisateur',
-            'class': 'form-control'
-        })
-    )
-    password = forms.CharField(
-        widget=forms.PasswordInput(attrs={
-            'placeholder': 'Mot de passe',
-            'class': 'form-control'
-        })
-    )
+class ConnexionForm(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(

@@ -35,7 +35,7 @@ def signup(request):
 
 def connexion(request):
     """Vue pour la connexion des utilisateurs."""
-    form = ConnexionForm(request.POST or None)
+    form = ConnexionForm(request, data=request.POST or None)
     if request.method == 'POST' and form.is_valid():
         username = form.cleaned_data['username']
         password = form.cleaned_data['password']
