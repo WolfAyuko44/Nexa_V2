@@ -27,8 +27,12 @@ class UtilisateurModificationForm(UserChangeForm):
         }
 
 class ConnexionForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control'})
+    )
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(

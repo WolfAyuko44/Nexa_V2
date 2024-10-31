@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps.monétisation',
     'apps.messagerie',
     'apps.user_settings',
+    'apps.recherche',
 ]
 
 # Middleware

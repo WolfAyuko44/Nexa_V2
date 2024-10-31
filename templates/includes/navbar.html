@@ -15,11 +15,14 @@
         <div class="navbar-menu" id="navbar-menu">
             <ul class="navbar-menu-items">
                 {% if user.is_authenticated %}
+                    <!-- Accueil -->
                     <li>
                         <a href="{% url 'partage_contenu:home' %}" aria-label="Accueil">
                             <i class="fas fa-home"></i> Accueil
                         </a>
                     </li>
+
+                    <!-- Messagerie -->
                     <li>
                         <a href="{% url 'messagerie:conversation_list' %}" class="navbar-messaging" aria-label="Messagerie">
                             <i class="fas fa-envelope"></i> Messagerie
@@ -28,11 +31,22 @@
                             {% endif %}
                         </a>
                     </li>
+
+                    <!-- Notifications -->
                     <li>
                         <a href="{% url 'notifications_messagerie:notifications_list' %}" aria-label="Notifications">
                             <i class="fas fa-bell"></i> Notifications
                         </a>
                     </li>
+
+                    <!-- Lien vers la recherche d'utilisateur -->
+                    <li class="navbar-search">
+                        <a href="{% url 'recherche:recherche_utilisateur' %}" aria-label="Recherche d'utilisateur">
+                            <i class="fas fa-search"></i> Rechercher un utilisateur
+                        </a>
+                    </li>
+
+                    <!-- Menu déroulant 'Plus' -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" aria-label="Plus" aria-expanded="false">
                             <i class="fas fa-bars"></i> Plus
@@ -56,6 +70,7 @@
                         </div>
                     </li>
                 {% else %}
+                    <!-- Options pour les utilisateurs non connectés -->
                     <li>
                         <a href="{% url 'utilisateurs:home' %}" aria-label="Accueil">
                             <i class="fas fa-home"></i> Accueil

@@ -1,0 +1,43 @@
+<!-- recherche/recherche_utilisateur.html -->
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche d'utilisateur</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="site-navbar" aria-label="Main Navigation">
+        <!-- Incluez votre code de navbar ici -->
+    </nav>
+
+    <div class="container">
+        <h1>Recherche d'utilisateur</h1>
+        <form method="GET" action="{% url 'recherche:recherche_utilisateur' %}">
+            <input type="text" name="q" placeholder="Rechercher un utilisateur" value="{{ query }}">
+            <button type="submit">Rechercher</button>
+        </form>
+
+        <h2>Résultats de la recherche</h2>
+        {% if utilisateurs %}
+            <ul>
+                {% for utilisateur in utilisateurs %}
+                    <li>
+                        <a href="{% url 'utilisateurs:profil_detail' username=utilisateur.username %}">
+                            {{ utilisateur.username }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun utilisateur trouvé.</p>
+        {% endif %}
+    </div>
+
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+</body>
+</html>

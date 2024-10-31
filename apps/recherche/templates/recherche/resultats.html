@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Résultats de la recherche</h2>
+{% if utilisateurs %}
+    <ul>
+        {% for utilisateur in utilisateurs %}
+            <li>{{ utilisateur.username }} - {{ utilisateur.email }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Aucun utilisateur trouvé.</p>
+{% endif %}
+{% endblock %}
